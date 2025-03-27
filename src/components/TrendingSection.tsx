@@ -1,7 +1,6 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
-import { TrendingUp, Play } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 interface TrendingItem {
   id: string;
@@ -66,11 +65,7 @@ const TrendingCard = ({ item }: { item: TrendingItem }) => {
         </div>
       </div>
       
-      <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <button className="bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full p-4 transition-transform duration-300 transform group-hover:scale-110">
-          <Play className="h-8 w-8 text-white" />
-        </button>
-      </div>
+      
       
       <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
         <div className="mb-1">

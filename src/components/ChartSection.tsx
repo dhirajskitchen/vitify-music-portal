@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Play, Pause, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -66,18 +65,6 @@ const ChartItem = ({ track }: { track: Track }) => {
         <span className="font-medium text-vitify-500 dark:text-vitify-400 group-hover:opacity-0 transition-opacity duration-200">
           {track.rank}
         </span>
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="absolute left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-          onClick={() => setIsPlaying(!isPlaying)}
-        >
-          {isPlaying ? (
-            <Pause className="h-5 w-5 text-vitify-700 dark:text-vitify-300" />
-          ) : (
-            <Play className="h-5 w-5 text-vitify-700 dark:text-vitify-300" />
-          )}
-        </Button>
       </div>
       
       <div className="flex-shrink-0 w-12 h-12 rounded-md overflow-hidden">

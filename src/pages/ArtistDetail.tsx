@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { Play, Share2, Heart, BarChart3, Clock, Music } from "lucide-react";
+import { Share2, Heart, BarChart3, Clock, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -112,10 +112,6 @@ const ArtistDetail = () => {
             </div>
             
             <div className="flex gap-2 md:ml-auto mt-4 md:mt-0">
-              <Button className="rounded-full px-6 flex items-center gap-2 bg-white text-vitify-900 hover:bg-white/90">
-                <Play className="h-5 w-5" />
-                Play
-              </Button>
               <Button variant="outline" className="rounded-full px-6 border-white/30 text-white hover:bg-white/10">
                 <Heart className="h-5 w-5" />
               </Button>

@@ -87,14 +87,6 @@ const Footer = () => {
                   News
                 </Link>
               </li>
-              <li>
-                <Link 
-                  to="/trends" 
-                  className="text-vitify-600 dark:text-vitify-400 hover:text-vitify-900 dark:hover:text-white transition-colors text-sm"
-                >
-                  Trending
-                </Link>
-              </li>
             </ul>
           </div>
           

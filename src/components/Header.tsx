@@ -60,12 +60,6 @@ const Header = () => {
             >
               News
             </Link>
-            <Link 
-              to="/trends" 
-              className="text-vitify-700 dark:text-vitify-200 hover:text-vitify-900 dark:hover:text-white transition-colors duration-200"
-            >
-              Trending
-            </Link>
           </div>
           
           <div className="flex items-center space-x-3">

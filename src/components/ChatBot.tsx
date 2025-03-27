@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Send, X, MessageCircle, Bot, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -37,7 +36,45 @@ const ChatBot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const generateResponse = async (userInput: string) => {
+    try {
+      // Replace with your actual Gemini API key
+      const API_KEY = "AIzaSyCcTahEayPhUxv1mRPLTMStk80tGEgBoqc";
+      const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`;
+      
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `You are a music assistant. Respond to music-related queries professionally and knowledgeably. 
+              If asked about non-music topics, politely decline. Keep responses concise but informative.
+              
+              User: ${userInput}`
+            }]
+          }]
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 
+                  "I couldn't generate a response. Please try again.";
+
+      return text;
+    } catch (error) {
+      console.error("Error calling Gemini API:", error);
+      return "Sorry, I encountered an error. Please try again later.";
+    }
+  };
+
+  const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!input.trim()) return;
@@ -54,26 +91,27 @@ const ChatBot = () => {
     setInput("");
     setIsLoading(true);
     
-    // Simulate AI response
-    setTimeout(() => {
-      const botResponses = [
-        "I found several new releases from your favorite artists this week. Would you like me to list them?",
-        "Based on your interests, I think you might enjoy the latest album by HAIM.",
-        "Taylor Swift is currently topping the charts with her new single.",
-        "The upcoming Coachella lineup includes some amazing artists like Billie Eilish and Harry Styles.",
-        "Drake and The Weeknd have both released new music recently. Their tracks are trending in the Top 10."
-      ];
+    try {
+      const botResponse = await generateResponse(input.trim());
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: botResponses[Math.floor(Math.random() * botResponses.length)],
+        content: botResponse,
         sender: "bot",
         timestamp: new Date()
       };
       
       setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error generating response:", error);
+      toast({
+        title: "Error",
+        description: "Failed to get response from the assistant",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const toggleChat = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { Share2, Heart, BarChart3, Clock, Music } from "lucide-react";
+import { Share2, Heart, BarChart3, Clock, Music, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 

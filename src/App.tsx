@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Pages
 import Index from "./pages/Index";
 import ArtistDetail from "./pages/ArtistDetail";
+import ArtistFiles from "./pages/ArtistFiles";
 import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/artists/:id" element={<ArtistDetail />} />
+            <Route path="/artist-files/:artist" element={<ArtistFiles />} />
             <Route path="/search" element={<Search />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

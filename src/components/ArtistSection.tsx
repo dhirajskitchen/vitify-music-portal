@@ -8,6 +8,7 @@ interface Artist {
   name: string;
   image: string;
   genre: string;
+  filePath?: string;
 }
 
 // Mock data for initial display
@@ -28,20 +29,22 @@ const mockArtists: Artist[] = [
     id: "3",
     name: "Kendrick Lamar",
     image: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=1000",
-    genre: "Hip Hop"
+    genre: "Hip Hop",
+    filePath: "/artist-files/kendrick-lamar"
   },
   {
     id: "4",
     name: "Billie Eilish",
     image: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?q=80&w=774",
-    genre: "Alternative"
+    genre: "Alternative",
+    filePath: "/artist-files/billie-eilish"
   }
 ];
 
 const ArtistCard = ({ artist }: { artist: Artist }) => {
   return (
     <div className="group">
-      <Link to={`/artists/${artist.id}`} className="block">
+      <Link to={artist.filePath || `/artists/${artist.id}`} className="block">
         <div className="rounded-2xl overflow-hidden relative aspect-square mb-3 group-hover:shadow-lg transition-all duration-300">
           <div className="absolute inset-0 bg-gradient-to-t from-vitify-900/70 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
           <img 

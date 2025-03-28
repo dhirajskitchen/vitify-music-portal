@@ -71,13 +71,13 @@ const ArtistSection = () => {
               Discover top artists from various genres
             </p>
           </div>
-          <Link 
+          {/* <Link 
             to="/artists" 
             className="flex items-center text-vitify-700 dark:text-vitify-300 hover:text-vitify-900 dark:hover:text-white transition-colors"
           >
             View More
             <ChevronRight className="h-4 w-4 ml-1" />
-          </Link>
+          </Link> */}
         </div>
         
         {loading ? (

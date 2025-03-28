@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Music, Instagram, Twitter, Youtube, Facebook, Heart } from "lucide-react";
@@ -50,9 +49,22 @@ const Footer = () => {
             </div>
           </div>
           
+          {/* Empty columns for layout */}
+          <div></div>
+          <div></div>
           
-          
-                    <div>
+          {/* Team Information Column */}
+          <div className="text-right">
+            <h3 className="text-vitify-900 dark:text-white font-semibold mb-3">Team OSDA</h3>
+            <ul className="text-vitify-600 dark:text-vitify-400 text-sm space-y-1">
+              <li>Shafique Iqbal 23BDS1051</li>
+              <li>M Vaishnavi 23BDS1091</li>
+              <li>K. Dhiraj 23BDS1096</li>
+              <li className="pt-2 flex items-center justify-end">
+                <span className="mr-1">Data Science</span>
+                <Heart className="h-4 w-4 text-vitify-700 dark:text-vitify-300" />
+              </li>
+            </ul>
           </div>
         </div>
         

@@ -55,13 +55,13 @@ const NewsSection = () => {
               Stay updated with the latest in music
             </p>
           </div>
-          <Link 
-            to="/news" 
+          {/* <Link 
+            to="./NewsPage" 
             className="flex items-center text-vitify-700 dark:text-vitify-300 hover:text-vitify-900 dark:hover:text-white transition-colors"
           >
             View all
             <ChevronRight className="h-4 w-4 ml-1" />
-          </Link>
+          </Link> */}
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

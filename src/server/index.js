@@ -4,9 +4,11 @@ const cors = require('cors');
 const { join } = require('path');
 const { Low } = require('lowdb');
 const { JSONFile } = require('lowdb/node');
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
+const isProduction = process.env.NODE_ENV === 'production';
 
 // Configure CORS to accept requests from any origin
 app.use(cors({
@@ -134,6 +136,7 @@ const initializeDb = async () => {
 // Initialize DB before starting server
 initializeDb().catch(console.error);
 
+// In production, serve the API on the same port as the frontend
 // API Routes
 app.get('/api/artists', async (req, res) => {
   await db.read();

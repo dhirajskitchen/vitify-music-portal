@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SearchBar from "@/components/SearchBar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, User, Music, Newspaper, Clock } from "lucide-react";
+import { fetchArtists, ArtistListItem } from "@/services/api";
 
 interface SearchResult {
   id: string;
@@ -14,17 +14,9 @@ interface SearchResult {
   image: string;
 }
 
-// Mock search results function
-const getSearchResults = (query: string): SearchResult[] => {
-  // This would be replaced with actual API call
-  const results: SearchResult[] = [
-    {
-      id: "1",
-      type: "artist",
-      title: "Taylor Swift",
-      subtitle: "Artist",
-      image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774"
-    },
+// Mock search results for tracks, albums, and news
+const getMockResults = (): SearchResult[] => {
+  return [
     {
       id: "101",
       type: "track",
@@ -38,13 +30,6 @@ const getSearchResults = (query: string): SearchResult[] => {
       title: "The Tortured Poets Department",
       subtitle: "Taylor Swift • 2024",
       image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774"
-    },
-    {
-      id: "2",
-      type: "artist",
-      title: "The Weeknd",
-      subtitle: "Artist",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1000"
     },
     {
       id: "106",
@@ -61,9 +46,30 @@ const getSearchResults = (query: string): SearchResult[] => {
       image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774"
     }
   ];
+};
+
+// Get search results function that combines API artists with mock data
+const getSearchResults = async (query: string): Promise<SearchResult[]> => {
+  // Fetch real artists from the API
+  const artists = await fetchArtists();
+  
+  // Convert artists to search results format
+  const artistResults: SearchResult[] = artists.map(artist => ({
+    id: artist.id,
+    type: "artist",
+    title: artist.name,
+    subtitle: "Artist",
+    image: artist.image
+  }));
+  
+  // Get mock results for other types
+  const mockResults = getMockResults();
+  
+  // Combine real artists with mock data
+  const allResults = [...artistResults, ...mockResults];
   
   // Filter results based on query
-  return results.filter(item => 
+  return allResults.filter(item => 
     item.title.toLowerCase().includes(query.toLowerCase()) ||
     item.subtitle?.toLowerCase().includes(query.toLowerCase())
   );
@@ -149,12 +155,21 @@ const Search = () => {
   useEffect(() => {
     if (query) {
       setIsLoading(true);
-      // Simulate API call
-      setTimeout(() => {
-        const data = getSearchResults(query);
-        setResults(data);
-        setIsLoading(false);
-      }, 800);
+      
+      // Use the async function to get search results
+      const fetchResults = async () => {
+        try {
+          const data = await getSearchResults(query);
+          setResults(data);
+        } catch (error) {
+          console.error("Error fetching search results:", error);
+          setResults([]);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      
+      fetchResults();
     } else {
       setResults([]);
       setIsLoading(false);

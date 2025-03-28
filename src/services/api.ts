@@ -1,7 +1,8 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/api';
+// Update the API URL to use the current domain (rather than localhost)
+const API_URL = `${window.location.protocol}//${window.location.hostname}:3001/api`;
 
 export interface ArtistListItem {
   id: string;

@@ -1,16 +1,19 @@
 
 const express = require('express');
 const cors = require('cors');
-const { join, dirname } = require('path');
+const { join } = require('path');
 const { Low } = require('lowdb');
 const { JSONFile } = require('lowdb/node');
-const { fileURLToPath } = require('url');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-// Enable CORS for frontend requests
-app.use(cors());
+// Configure CORS to accept requests from any origin
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Set up the database file location
@@ -178,6 +181,6 @@ app.post('/api/artists', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
 });

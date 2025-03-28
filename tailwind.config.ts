@@ -143,11 +143,15 @@ export default {
       },
       fontFamily: {
         sans: [
-          '"SF Pro Display"',
-          '"Helvetica Neue"',
-          "Helvetica",
-          "Arial",
-          "sans-serif",
+          'Inter', 
+          'system-ui', 
+          '-apple-system', 
+          'BlinkMacSystemFont', 
+          '"Segoe UI"', 
+          'Roboto', 
+          '"Helvetica Neue"', 
+          'Arial', 
+          'sans-serif'
         ],
       },
     },

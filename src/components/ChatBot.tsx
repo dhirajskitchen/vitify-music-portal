@@ -116,12 +116,12 @@ const ChatBot = () => {
 
   const toggleChat = () => {
     setIsOpen(prev => !prev);
-    if (!isOpen) {
-      toast({
-        title: "Chat Assistant",
-        description: "Ask me anything about music, artists or trends!",
-      });
-    }
+    // if (!isOpen) {
+    //   toast({
+    //     title: "Chat Assistant",
+    //     description: "Ask me anything about music, artists or trends!",
+    //   });
+    // }
   };
 
   return (

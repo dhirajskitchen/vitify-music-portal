@@ -41,7 +41,7 @@ const Header = () => {
             </span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-6">
+          {/* <div className="hidden md:flex items-center space-x-6">
             <Link 
               to="/artists" 
               className="text-vitify-700 dark:text-vitify-200 hover:text-vitify-900 dark:hover:text-white transition-colors duration-200"
@@ -60,7 +60,7 @@ const Header = () => {
             >
               News
             </Link>
-          </div>
+          </div> */}
           
           <div className="flex items-center space-x-3">
             <Button

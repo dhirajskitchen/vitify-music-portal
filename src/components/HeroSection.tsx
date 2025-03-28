@@ -15,9 +15,7 @@ const HeroSection = () => {
       {/* Background with blur effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-vitify-200/30 to-white dark:from-vitify-900/50 dark:to-vitify-950 z-0"></div>
       
-      {/* Decorative circles */}
-      <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-vitify-300/20 dark:bg-vitify-700/10 blur-3xl"></div>
-      <div className="absolute top-40 -left-20 w-80 h-80 rounded-full bg-vitify-200/30 dark:bg-vitify-800/20 blur-3xl"></div>
+
       
       <div className="container mx-auto px-6 h-full flex items-center relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -35,7 +33,7 @@ const HeroSection = () => {
               Explore the latest trends, news, and charts in the world of music. 
               Find new artists and tracks tailored to your taste.
             </p>
-            <div className="flex flex-wrap gap-4">
+            {/* <div className="flex flex-wrap gap-4">
               <Button className="bg-vitify-900 hover:bg-vitify-800 text-white rounded-full px-6 flex items-center gap-2 transform hover:scale-105 transition-all">
                 <Play className="h-5 w-5" />
                 Explore Now
@@ -44,7 +42,7 @@ const HeroSection = () => {
                 <Info className="h-5 w-5" />
                 Learn More
               </Button>
-            </div>
+            </div> */}
           </div>
           
           <div className={`relative transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
@@ -62,8 +60,8 @@ const HeroSection = () => {
             </div>
             
             {/* Floating decorative elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-xl glass rotate-12 animate-float"></div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-xl glass-dark -rotate-12 animate-float" style={{animationDelay: "2s"}}></div>
+            {/* <div className="absolute -top-6 -right-6 w-32 h-32 rounded-xl glass rotate-12 animate-float"></div>
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-xl glass-dark -rotate-12 animate-float" style={{animationDelay: "2s"}}></div> */}
           </div>
         </div>
       </div>

@@ -15,10 +15,15 @@ import { JSONFile } from 'lowdb/node';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
+const isProduction = process.env.NODE_ENV === 'production';
 
-// Enable CORS for frontend requests
-app.use(cors());
+// Configure CORS to accept requests from any origin
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Set up the database file location
@@ -139,6 +144,7 @@ const initializeDb = async () => {
 // Initialize DB before starting server
 initializeDb().catch(console.error);
 
+// In production, serve the API on the same port as the frontend
 // API Routes
 app.get('/api/artists', async (req, res) => {
   await db.read();
@@ -186,6 +192,6 @@ app.post('/api/artists', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
 });

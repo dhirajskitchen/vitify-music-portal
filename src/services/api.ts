@@ -1,7 +1,12 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/api';
+// Use the same domain but without specifying port for production
+// In development, we would use port 3001
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_URL = isLocalhost 
+  ? `${window.location.protocol}//${window.location.hostname}:3001/api`
+  : '/api'; // In production, use a relative path that will be handled by the same domain
 
 export interface ArtistListItem {
   id: string;

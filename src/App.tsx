@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import ArtistDetail from "./pages/ArtistDetail";
 import ArtistFiles from "./pages/ArtistFiles";
 import Search from "./pages/Search";
+import NewsDetail from "./pages/NewsDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/artists/:id" element={<ArtistDetail />} />
             <Route path="/artist-files/:artist" element={<ArtistFiles />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/news/:id" element={<NewsDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

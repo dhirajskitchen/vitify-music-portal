@@ -2,45 +2,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Clock, ChevronRight } from "lucide-react";
+import { mockNews } from "@/services/newsService";
 
-interface NewsItem {
-  id: string;
-  title: string;
-  excerpt: string;
-  image: string;
-  category: string;
-  date: string;
-}
-
-// Mock data for initial display
-const mockNews: NewsItem[] = [
-  {
-    id: "1",
-    title: "Taylor Swift's 'The Tortured Poets Department' Shatters Streaming Records",
-    excerpt: "The singer's latest album has broken multiple streaming records within just 24 hours of release.",
-    image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774",
-    category: "Album Release",
-    date: "2 hours ago"
-  },
-  {
-    id: "2",
-    title: "Kendrick Lamar and Drake Feud Intensifies with New Diss Tracks",
-    excerpt: "The rap battle between two of hip-hop's biggest stars has reached new heights with the release of multiple diss tracks.",
-    image: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=1000",
-    category: "Artist News",
-    date: "1 day ago"
-  },
-  {
-    id: "3",
-    title: "Coachella 2024 Highlights: The Most Memorable Performances",
-    excerpt: "From surprise guest appearances to technical innovations, here are the standout moments from this year's festival.",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000",
-    category: "Festivals",
-    date: "3 days ago"
-  }
-];
-
-const NewsCard = ({ news }: { news: NewsItem }) => {
+const NewsCard = ({ news }) => {
   return (
     <div className="group glass-card dark:glass-card-dark rounded-2xl overflow-hidden h-full">
       <div className="aspect-video overflow-hidden">

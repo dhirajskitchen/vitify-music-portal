@@ -5,6 +5,7 @@ import SearchBar from "@/components/SearchBar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, User, Music, Newspaper, Clock } from "lucide-react";
 import { fetchArtists, ArtistListItem } from "@/services/api";
+import { fetchArtists, ArtistListItem } from "@/services/api";
 
 interface SearchResult {
   id: string;

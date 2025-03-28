@@ -46,8 +46,17 @@ export interface Track {
 
 export const fetchArtists = async (): Promise<ArtistListItem[]> => {
   try {
+    console.log("Fetching artists from:", API_URL);
     const response = await axios.get(`${API_URL}/artists`);
-    return response.data;
+    console.log("Artists API response:", response.data);
+    
+    // Ensure we're returning an array, even if the API returns something unexpected
+    if (Array.isArray(response.data)) {
+      return response.data;
+    } else {
+      console.error('API response is not an array:', response.data);
+      return [];
+    }
   } catch (error) {
     console.error('Error fetching artists:', error);
     return [];

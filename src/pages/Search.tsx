@@ -50,29 +50,38 @@ const getMockResults = (): SearchResult[] => {
 
 // Get search results function that combines API artists with mock data
 const getSearchResults = async (query: string): Promise<SearchResult[]> => {
-  // Fetch real artists from the API
-  const artists = await fetchArtists();
-  
-  // Convert artists to search results format
-  const artistResults: SearchResult[] = artists.map(artist => ({
-    id: artist.id,
-    type: "artist",
-    title: artist.name,
-    subtitle: "Artist",
-    image: artist.image
-  }));
-  
-  // Get mock results for other types
-  const mockResults = getMockResults();
-  
-  // Combine real artists with mock data
-  const allResults = [...artistResults, ...mockResults];
-  
-  // Filter results based on query
-  return allResults.filter(item => 
-    item.title.toLowerCase().includes(query.toLowerCase()) ||
-    item.subtitle?.toLowerCase().includes(query.toLowerCase())
-  );
+  try {
+    // Fetch real artists from the API
+    const artists = await fetchArtists();
+    console.log("Artists fetched for search:", artists);
+    
+    // Convert artists to search results format (ensure artists is always an array)
+    const artistResults: SearchResult[] = Array.isArray(artists) 
+      ? artists.map(artist => ({
+          id: artist.id,
+          type: "artist",
+          title: artist.name,
+          subtitle: "Artist",
+          image: artist.image
+        }))
+      : [];
+    
+    // Get mock results for other types
+    const mockResults = getMockResults();
+    
+    // Combine real artists with mock data
+    const allResults = [...artistResults, ...mockResults];
+    
+    // Filter results based on query
+    return allResults.filter(item => 
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
+      item.subtitle?.toLowerCase().includes(query.toLowerCase())
+    );
+  } catch (error) {
+    console.error("Error in getSearchResults:", error);
+    // Return mock data in case of an error
+    return getMockResults();
+  }
 };
 
 const SearchResultItem = ({ result }: { result: SearchResult }) => {

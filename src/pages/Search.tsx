@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SearchBar from "@/components/SearchBar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, User, Music, Newspaper, Clock } from "lucide-react";
+import { fetchArtists, ArtistListItem } from "@/services/api";
 
 interface SearchResult {
   id: string;
@@ -14,17 +14,9 @@ interface SearchResult {
   image: string;
 }
 
-// Mock search results function
-const getSearchResults = (query: string): SearchResult[] => {
-  // This would be replaced with actual API call
-  const results: SearchResult[] = [
-    {
-      id: "1",
-      type: "artist",
-      title: "Taylor Swift",
-      subtitle: "Artist",
-      image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774"
-    },
+// Mock search results for tracks, albums, and news
+const getMockResults = (): SearchResult[] => {
+  return [
     {
       id: "101",
       type: "track",
@@ -38,13 +30,6 @@ const getSearchResults = (query: string): SearchResult[] => {
       title: "The Tortured Poets Department",
       subtitle: "Taylor Swift • 2024",
       image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774"
-    },
-    {
-      id: "2",
-      type: "artist",
-      title: "The Weeknd",
-      subtitle: "Artist",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1000"
     },
     {
       id: "106",
@@ -61,83 +46,37 @@ const getSearchResults = (query: string): SearchResult[] => {
       image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774"
     }
   ];
+};
+
+// Get search results function that combines API artists with mock data
+const getSearchResults = async (query: string): Promise<SearchResult[]> => {
+  // Fetch real artists from the API
+  const artists = await fetchArtists();
+  
+  // Convert artists to search results format
+  const artistResults: SearchResult[] = artists.map(artist => ({
+    id: artist.id,
+    type: "artist",
+    title: artist.name,
+    subtitle: "Artist",
+    image: artist.image
+  }));
+  
+  // Get mock results for other types
+  const mockResults = getMockResults();
+  
+  // Combine real artists with mock data
+  const allResults = [...artistResults, ...mockResults];
   
   // Filter results based on query
-  return results.filter(item => 
+  return allResults.filter(item => 
     item.title.toLowerCase().includes(query.toLowerCase()) ||
     item.subtitle?.toLowerCase().includes(query.toLowerCase())
   );
 };
 
 const SearchResultItem = ({ result }: { result: SearchResult }) => {
-  // Get icon based on type
-  const getIcon = () => {
-    switch (result.type) {
-      case "artist":
-        return <User className="h-4 w-4 text-vitify-700 dark:text-vitify-300" />;
-      case "track":
-        return <Play className="h-4 w-4 text-vitify-700 dark:text-vitify-300" />;
-      case "album":
-        return <Music className="h-4 w-4 text-vitify-700 dark:text-vitify-300" />;
-      case "news":
-        return <Newspaper className="h-4 w-4 text-vitify-700 dark:text-vitify-300" />;
-      default:
-        return null;
-    }
-  };
-  
-  // Get link based on type
-  const getLink = () => {
-    switch (result.type) {
-      case "artist":
-        return `/artists/${result.id}`;
-      case "track":
-        return `/tracks/${result.id}`;
-      case "album":
-        return `/albums/${result.id}`;
-      case "news":
-        return `/news/${result.id}`;
-      default:
-        return "/";
-    }
-  };
-  
-  return (
-    <Link 
-      to={getLink()}
-      className="flex items-center gap-4 p-4 rounded-xl hover:bg-vitify-100/50 dark:hover:bg-vitify-800/20 transition-colors duration-200 group"
-    >
-      <div className="relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden">
-        <img 
-          src={result.image} 
-          alt={result.title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        {result.type === "track" && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <Play className="h-6 w-6 text-white" />
-          </div>
-        )}
-      </div>
-      
-      <div className="flex-grow min-w-0">
-        <h3 className="font-medium text-vitify-900 dark:text-white text-base truncate group-hover:text-vitify-700 dark:group-hover:text-vitify-300 transition-colors duration-200">
-          {result.title}
-        </h3>
-        <div className="flex items-center text-vitify-600 dark:text-vitify-400 text-sm">
-          {getIcon()}
-          <span className="ml-1 truncate">{result.subtitle}</span>
-        </div>
-      </div>
-      
-      {result.type === "news" && (
-        <div className="flex-shrink-0 flex items-center text-vitify-500 dark:text-vitify-400 text-xs">
-          <Clock className="h-3 w-3 mr-1" />
-          <span>{result.subtitle}</span>
-        </div>
-      )}
-    </Link>
-  );
+  // ... keep existing code (SearchResultItem component)
 };
 
 const Search = () => {
@@ -149,12 +88,21 @@ const Search = () => {
   useEffect(() => {
     if (query) {
       setIsLoading(true);
-      // Simulate API call
-      setTimeout(() => {
-        const data = getSearchResults(query);
-        setResults(data);
-        setIsLoading(false);
-      }, 800);
+      
+      // Use the async function to get search results
+      const fetchResults = async () => {
+        try {
+          const data = await getSearchResults(query);
+          setResults(data);
+        } catch (error) {
+          console.error("Error fetching search results:", error);
+          setResults([]);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      
+      fetchResults();
     } else {
       setResults([]);
       setIsLoading(false);
@@ -167,6 +115,7 @@ const Search = () => {
   const albums = results.filter(result => result.type === "album");
   const news = results.filter(result => result.type === "news");
 
+  // ... keep existing code (rest of the component)
   return (
     <Layout>
       <div className="container mx-auto px-6 py-12">

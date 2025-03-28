@@ -15,7 +15,7 @@ import { JSONFile } from 'lowdb/node';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const isProduction = process.env.NODE_ENV === 'production';
 
 // Configure CORS to accept requests from any origin

@@ -1,47 +1,11 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { fetchArtists, ArtistListItem } from "../services/api";
+import { useToast } from "@/components/ui/use-toast";
 
-interface Artist {
-  id: string;
-  name: string;
-  image: string;
-  genre: string;
-  filePath?: string;
-}
-
-// Mock data for initial display
-const mockArtists: Artist[] = [
-  {
-    id: "1",
-    name: "Taylor Swift",
-    image: "https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=774",
-    genre: "Pop"
-  },
-  {
-    id: "2",
-    name: "The Weeknd",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1000",
-    genre: "R&B"
-  },
-  {
-    id: "3",
-    name: "Kendrick Lamar",
-    image: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=1000",
-    genre: "Hip Hop",
-    filePath: "/artist-files/kendrick-lamar"
-  },
-  {
-    id: "4",
-    name: "Billie Eilish",
-    image: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?q=80&w=774",
-    genre: "Alternative",
-    filePath: "/artist-files/billie-eilish"
-  }
-];
-
-const ArtistCard = ({ artist }: { artist: Artist }) => {
+const ArtistCard = ({ artist }: { artist: ArtistListItem }) => {
   return (
     <div className="group">
       <Link to={artist.filePath || `/artists/${artist.id}`} className="block">
@@ -70,6 +34,31 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
 };
 
 const ArtistSection = () => {
+  const [artists, setArtists] = useState<ArtistListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const getArtists = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchArtists();
+        setArtists(data);
+      } catch (error) {
+        console.error('Failed to fetch artists:', error);
+        toast({
+          title: "Error",
+          description: "Failed to load artists. Please try again later.",
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getArtists();
+  }, [toast]);
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-6">
@@ -85,16 +74,29 @@ const ArtistSection = () => {
           <Link 
             to="/artists" 
             className="flex items-center text-vitify-700 dark:text-vitify-300 hover:text-vitify-900 dark:hover:text-white transition-colors"
-          >View More
+          >
+            View More
             <ChevronRight className="h-4 w-4 ml-1" />
           </Link>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {mockArtists.map((artist) => (
-            <ArtistCard key={artist.id} artist={artist} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[1, 2, 3, 4].map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-2xl aspect-square mb-3"></div>
+                <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded mb-2 w-2/3"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3"></div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {artists.map((artist) => (
+              <ArtistCard key={artist.id} artist={artist} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

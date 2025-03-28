@@ -49,7 +49,7 @@ const Header = () => {
               Artists
             </Link>
             <Link 
-              to="src\components\ChartSection.tsx"
+              to="/charts"
               className="text-vitify-700 dark:text-vitify-200 hover:text-vitify-900 dark:hover:text-white transition-colors duration-200"
             >
               Charts

@@ -1,7 +1,10 @@
 
-const { spawn } = require('child_process');
-const path = require('path');
+// const { spawn } = require('child_process');
 
+// const path = require('path');
+
+import { spawn } from 'child_process';
+import path from 'path';
 // Path to the server file
 const serverPath = path.join(__dirname, 'index.js');
 

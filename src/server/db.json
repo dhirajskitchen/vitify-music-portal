@@ -1,4 +1,482 @@
-
 {
-  "artists": []
+  "artists": [
+    {
+      "id": "kendrick-lamar",
+      "name": "Kendrick Lamar",
+      "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=1000",
+      "coverImage": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1000",
+      "genre": "Hip Hop",
+      "bio": "Kendrick Lamar Duckworth is an American rapper and songwriter. Known for his progressive musical styles and socially conscious songwriting, he is widely regarded as one of the most influential hip hop artists of his generation.",
+      "monthlyListeners": "66.8M",
+      "discography": [
+        {
+          "title": "Mr. Morale & the Big Steppers",
+          "type": "Album",
+          "year": "2022",
+          "description": "Fifth studio album featuring 'N95' and 'Silent Hill'.",
+          "tracks": 18,
+          "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=774"
+        },
+        {
+          "title": "DAMN.",
+          "type": "Album",
+          "year": "2017",
+          "description": "Pulitzer Prize-winning album with 'HUMBLE.' and 'LOYALTY.'",
+          "tracks": 14,
+          "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=774"
+        },
+        {
+          "title": "To Pimp a Butterfly",
+          "type": "Album",
+          "year": "2015",
+          "description": "Critically acclaimed album featuring 'Alright' and 'King Kunta'.",
+          "tracks": 16,
+          "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=774"
+        }
+      ],
+      "achievements": [
+        "17 Grammy Awards",
+        "Pulitzer Prize for Music (2018)",
+        "Time's 100 most influential people (2016)",
+        "Billboard Music Award for Top Rap Artist"
+      ],
+      "topTracks": [
+        {
+          "title": "HUMBLE.",
+          "album": "DAMN.",
+          "plays": "1.9B"
+        },
+        {
+          "title": "Alright",
+          "album": "To Pimp a Butterfly",
+          "plays": "724M"
+        },
+        {
+          "title": "N95",
+          "album": "Mr. Morale & the Big Steppers",
+          "plays": "510M"
+        },
+        {
+          "title": "DNA.",
+          "album": "DAMN.",
+          "plays": "830M"
+        },
+        {
+          "title": "LOYALTY. (feat. Rihanna)",
+          "album": "DAMN.",
+          "plays": "605M"
+        }
+      ]
+    },
+    {
+      "id": "billie-eilish",
+      "name": "Billie Eilish",
+      "image": "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?q=80&w=774",
+      "coverImage": "https://images.unsplash.com/photo-1614613535308-eb5fbd552e8a?q=80&w=1000",
+      "genre": "Alternative / Pop",
+      "bio": "Billie Eilish Pirate Baird O'Connell is an American singer and songwriter. She first gained public attention in 2015 with her debut single 'Ocean Eyes', which was subsequently released by Darkroom, an imprint of Interscope Records.",
+      "monthlyListeners": "78.5M",
+      "discography": [
+        {
+          "title": "HIT ME HARD AND SOFT",
+          "type": "Album",
+          "year": "2024",
+          "description": "Third studio album featuring 'Birds of a Feather' and 'Lunch'.",
+          "tracks": 10,
+          "image": "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?q=80&w=774"
+        },
+        {
+          "title": "Happier Than Ever",
+          "type": "Album",
+          "year": "2021",
+          "description": "Second studio album featuring the title track and 'NDA'.",
+          "tracks": 16,
+          "image": "https://images.unsplash.com/photo-1614613535308-eb5fbd552e8a?q=80&w=774"
+        },
+        {
+          "title": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+          "type": "Album",
+          "year": "2019",
+          "description": "Breakthrough debut album with 'Bad Guy' and 'Bury a Friend'.",
+          "tracks": 14,
+          "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=774"
+        }
+      ],
+      "achievements": [
+        "9 Grammy Awards",
+        "Two Academy Awards (Oscars)",
+        "Three Billboard Music Awards",
+        "Golden Globe Award for Best Original Song"
+      ],
+      "topTracks": [
+        {
+          "title": "bad guy",
+          "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+          "plays": "2.4B"
+        },
+        {
+          "title": "Happier Than Ever",
+          "album": "Happier Than Ever",
+          "plays": "1.2B"
+        },
+        {
+          "title": "lovely (with Khalid)",
+          "album": "Single",
+          "plays": "1.8B"
+        },
+        {
+          "title": "when the party's over",
+          "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+          "plays": "1.3B"
+        },
+        {
+          "title": "Birds of a Feather",
+          "album": "HIT ME HARD AND SOFT",
+          "plays": "640M"
+        }
+      ]
+    },
+    {
+      "id": "the-weeknd",
+      "name": "The Weeknd",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a9c4a7e43b8b358b4e3838e1",
+      "genre": "R&B/Pop",
+      "bio": "Abel Makkonen Tesfaye, known professionally as the Weeknd, is a Canadian singer, songwriter, and record producer. Known for his sonic versatility and dark lyricism.",
+      "monthlyListeners": "82.4M",
+      "discography": [
+        {
+          "title": "After Hours",
+          "type": "Album",
+          "year": "2020",
+          "description": "Includes hits 'Blinding Lights' and 'Save Your Tears'",
+          "tracks": 14,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a991995542d50a691b9ae5be"
+        },
+        {
+          "title": "Dawn FM",
+          "type": "Album",
+          "year": "2022",
+          "description": "Concept album featuring Jim Carrey narration",
+          "tracks": 16,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1c4b76e23414c9f20242268"
+        }
+      ],
+      "achievements": [
+        "4 Grammy Awards",
+        "20 Billboard Music Awards",
+        "Diamond certification for 'Blinding Lights'",
+        "First artist to top Billboard Global 200 and Global Excl. US simultaneously"
+      ],
+      "topTracks": [
+        { "title": "Blinding Lights", "album": "After Hours", "plays": "3.5B" },
+        { "title": "Starboy", "album": "Starboy", "plays": "2.7B" },
+        { "title": "Save Your Tears", "album": "After Hours", "plays": "2.3B" }
+      ]
+    },
+    {
+      "id": "taylor-swift",
+      "name": "Taylor Swift",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb9e690225ad4445530612ccc9",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a7f6d8a6170a0b8e5a3a8e7e",
+      "genre": "Pop/Country",
+      "bio": "Taylor Swift is an American singer-songwriter. Her discography spans multiple genres, and her songwriting often centers around her personal life and relationships.",
+      "monthlyListeners": "92.1M",
+      "discography": [
+        {
+          "title": "1989 (Taylor's Version)",
+          "type": "Album",
+          "year": "2023",
+          "description": "Re-recorded version of her pop masterpiece",
+          "tracks": 21,
+          "image": "https://i.scdn.co/image/ab67616d00001e02e11a75a2f2ff39cec788a015"
+        },
+        {
+          "title": "Folklore",
+          "type": "Album",
+          "year": "2020",
+          "description": "Surprise indie-folk album created during quarantine",
+          "tracks": 16,
+          "image": "https://i.scdn.co/image/ab67616d00001e02c288028cacaad42284e43f5a"
+        }
+      ],
+      "achievements": [
+        "12 Grammy Awards",
+        "Most American Music Awards won (40)",
+        "First woman with 4 consecutive albums sell 1M+ copies in first week",
+        "Spotify's most-streamed artist in a single day (2023)"
+      ],
+      "topTracks": [
+        { "title": "Cruel Summer", "album": "Lover", "plays": "1.8B" },
+        { "title": "Anti-Hero", "album": "Midnights", "plays": "1.5B" },
+        { "title": "Blank Space", "album": "1989", "plays": "1.7B" }
+      ]
+    },
+    {
+      "id": "bts",
+      "name": "BTS",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb5ce132a1a7e34c5b6f434e9e",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "K-Pop",
+      "bio": "BTS, also known as the Bangtan Boys, is a South Korean boy band formed in 2010. The group consists of Jin, Suga, J-Hope, RM, Jimin, V, and Jungkook.",
+      "monthlyListeners": "75.3M",
+      "discography": [
+        {
+          "title": "Map of the Soul: 7",
+          "type": "Album",
+          "year": "2020",
+          "description": "BTS's fourth Korean-language studio album",
+          "tracks": 20,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a3b3b3b3b3b3b3b3b3b3b3b3"
+        },
+        {
+          "title": "BE",
+          "type": "Album",
+          "year": "2020",
+          "description": "Album created during COVID-19 pandemic",
+          "tracks": 8,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b3b3b3b3b3b3b3b3b3b3b3b3"
+        }
+      ],
+      "achievements": [
+        "Multiple Billboard Music Awards",
+        "First Korean act to top US Billboard 200",
+        "Time 100 Most Influential People (2019)",
+        "UNICEF Global Ambassador"
+      ],
+      "topTracks": [
+        { "title": "Dynamite", "album": "Single", "plays": "1.9B" },
+        { "title": "Butter", "album": "Single", "plays": "1.2B" },
+        { "title": "Boy With Luv", "album": "Map of the Soul: Persona", "plays": "1.1B" }
+      ]
+    },
+    {
+      "id": "drake",
+      "name": "Drake",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "Hip-Hop/R&B",
+      "bio": "Aubrey Drake Graham is a Canadian rapper, singer, and actor. One of the world's best-selling music artists with over 170 million records sold.",
+      "monthlyListeners": "88.7M",
+      "discography": [
+        {
+          "title": "Certified Lover Boy",
+          "type": "Album",
+          "year": "2021",
+          "description": "Featuring 'Way 2 Sexy' and 'Knife Talk'",
+          "tracks": 21,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a1f1e3c0a9c0a9c0a9c0a9c0"
+        },
+        {
+          "title": "Her Loss",
+          "type": "Album",
+          "year": "2022",
+          "description": "Collaborative album with 21 Savage",
+          "tracks": 16,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1f1e3c0a9c0a9c0a9c0a9c0"
+        }
+      ],
+      "achievements": [
+        "5 Grammy Awards",
+        "Most Billboard Hot 100 top 10 singles (54)",
+        "Most streamed artist on Spotify (2023)",
+        "Artist of the Decade (Billboard 2010s)"
+      ],
+      "topTracks": [
+        { "title": "God's Plan", "album": "Scorpion", "plays": "2.1B" },
+        { "title": "One Dance", "album": "Views", "plays": "2.3B" },
+        { "title": "Hotline Bling", "album": "Single", "plays": "1.8B" }
+      ]
+    },
+    {
+      "id": "ariana-grande",
+      "name": "Ariana Grande",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb5a5e5e5e5e5e5e5e5e5e5e5",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "Pop/R&B",
+      "bio": "Ariana Grande-Butera is an American singer, songwriter, and actress. Known for her four-octave vocal range and whistle register.",
+      "monthlyListeners": "79.2M",
+      "discography": [
+        {
+          "title": "thank u, next",
+          "type": "Album",
+          "year": "2019",
+          "description": "Includes title track and '7 rings'",
+          "tracks": 12,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a1f1e3c0a9c0a9c0a9c0a9c0"
+        },
+        {
+          "title": "Positions",
+          "type": "Album",
+          "year": "2020",
+          "description": "Her sixth studio album",
+          "tracks": 14,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1f1e3c0a9c0a9c0a9c0a9c0"
+        }
+      ],
+      "achievements": [
+        "2 Grammy Awards",
+        "Most songs debuting at #1 on Billboard Hot 100 (5)",
+        "First artist to occupy top 3 spots on Hot 100 simultaneously",
+        "Most-streamed female artist on Spotify (2020)"
+      ],
+      "topTracks": [
+        { "title": "thank u, next", "album": "thank u, next", "plays": "1.9B" },
+        { "title": "7 rings", "album": "thank u, next", "plays": "1.7B" },
+        { "title": "Side to Side", "album": "Dangerous Woman", "plays": "1.5B" }
+      ]
+    },
+    {
+      "id": "post-malone",
+      "name": "Post Malone",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb5a5e5e5e5e5e5e5e5e5e5e5",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "Hip-Hop/Pop",
+      "bio": "Austin Richard Post, known professionally as Post Malone, is an American rapper, singer, songwriter, and record producer.",
+      "monthlyListeners": "65.4M",
+      "discography": [
+        {
+          "title": "Hollywood's Bleeding",
+          "type": "Album",
+          "year": "2019",
+          "description": "Features 'Circles' and 'Sunflower'",
+          "tracks": 17,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a1f1e3c0a9c0a9c0a9c0a9c0"
+        },
+        {
+          "title": "Twelve Carat Toothache",
+          "type": "Album",
+          "year": "2022",
+          "description": "His fourth studio album",
+          "tracks": 14,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1f1e3c0a9c0a9c0a9c0a9c0"
+        }
+      ],
+      "achievements": [
+        "10 Billboard Music Awards",
+        "Diamond certification for 'Sunflower'",
+        "Most simultaneous Top 20 Hot 100 entries (9)",
+        "First artist to top three different Billboard charts simultaneously"
+      ],
+      "topTracks": [
+        { "title": "Sunflower", "album": "Spider-Man: Into the Spider-Verse", "plays": "2.8B" },
+        { "title": "Circles", "album": "Hollywood's Bleeding", "plays": "2.3B" },
+        { "title": "rockstar", "album": "Beerbongs & Bentleys", "plays": "2.1B" }
+      ]
+    },
+    {
+      "id": "ed-sheeran",
+      "name": "Ed Sheeran",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb5a5e5e5e5e5e5e5e5e5e5e5",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "Pop/Folk",
+      "bio": "Edward Christopher Sheeran is an English singer-songwriter. Known for his guitar skills and melodic pop songs.",
+      "monthlyListeners": "84.6M",
+      "discography": [
+        {
+          "title": "÷ (Divide)",
+          "type": "Album",
+          "year": "2017",
+          "description": "Includes 'Shape of You' and 'Perfect'",
+          "tracks": 16,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a1f1e3c0a9c0a9c0a9c0a9c0"
+        },
+        {
+          "title": "=",
+          "type": "Album",
+          "year": "2021",
+          "description": "His fourth studio album",
+          "tracks": 14,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1f1e3c0a9c0a9c0a9c0a9c0"
+        }
+      ],
+      "achievements": [
+        "4 Grammy Awards",
+        "Most weeks in UK Top 10 albums chart (79)",
+        "First artist with two songs debut in US Top 10 simultaneously",
+        "Best-selling artist worldwide (2017)"
+      ],
+      "topTracks": [
+        { "title": "Shape of You", "album": "÷ (Divide)", "plays": "3.5B" },
+        { "title": "Perfect", "album": "÷ (Divide)", "plays": "2.8B" },
+        { "title": "Bad Habits", "album": "=", "plays": "1.7B" }
+      ]
+    },
+    {
+      "id": "doja-cat",
+      "name": "Doja Cat",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb5a5e5e5e5e5e5e5e5e5e5e5",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "Pop/Rap",
+      "bio": "Amala Ratna Zandile Dlamini, known professionally as Doja Cat, is an American rapper, singer, and songwriter.",
+      "monthlyListeners": "68.3M",
+      "discography": [
+        {
+          "title": "Planet Her",
+          "type": "Album",
+          "year": "2021",
+          "description": "Includes 'Kiss Me More' and 'Need to Know'",
+          "tracks": 14,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a1f1e3c0a9c0a9c0a9c0a9c0"
+        },
+        {
+          "title": "Scarlet",
+          "type": "Album",
+          "year": "2023",
+          "description": "Her fourth studio album",
+          "tracks": 15,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1f1e3c0a9c0a9c0a9c0a9c0"
+        }
+      ],
+      "achievements": [
+        "Grammy Award for Best Pop Duo/Group Performance",
+        "MTV Video Music Award for Video of the Year",
+        "Billboard Music Award for Top R&B Female Artist",
+        "American Music Award for Favorite Female R&B Artist"
+      ],
+      "topTracks": [
+        { "title": "Say So", "album": "Hot Pink", "plays": "1.9B" },
+        { "title": "Kiss Me More", "album": "Planet Her", "plays": "1.7B" },
+        { "title": "Paint The Town Red", "album": "Scarlet", "plays": "800M" }
+      ]
+    },
+    {
+      "id": "bad-bunny",
+      "name": "Bad Bunny",
+      "image": "https://i.scdn.co/image/ab6761610000e5eb5a5e5e5e5e5e5e5e5e5e5e5",
+      "coverImage": "https://i.scdn.co/image/ab67618600001016a1f1e3c0a9c0a9c0a9c0a9c0",
+      "genre": "Reggaeton/Latin Trap",
+      "bio": "Benito Antonio Martínez Ocasio, known professionally as Bad Bunny, is a Puerto Rican rapper, singer, and songwriter.",
+      "monthlyListeners": "73.8M",
+      "discography": [
+        {
+          "title": "Un Verano Sin Ti",
+          "type": "Album",
+          "year": "2022",
+          "description": "Most-streamed album on Spotify (2022)",
+          "tracks": 23,
+          "image": "https://i.scdn.co/image/ab67616d00001e02a1f1e3c0a9c0a9c0a9c0a9c0"
+        },
+        {
+          "title": "Nadie Sabe Lo Que Va a Pasar Mañana",
+          "type": "Album",
+          "year": "2023",
+          "description": "His fifth studio album",
+          "tracks": 22,
+          "image": "https://i.scdn.co/image/ab67616d00001e02b1f1e3c0a9c0a9c0a9c0a9c0"
+        }
+      ],
+      "achievements": [
+        "3 Grammy Awards",
+        "Most-streamed artist on Spotify (2020-2022)",
+        "First non-English language album nominated for Album of the Year at Grammys",
+        "Billboard Top Latin Artist of the Year (2020-2023)"
+      ],
+      "topTracks": [
+        { "title": "Dákiti", "album": "El Último Tour Del Mundo", "plays": "1.8B" },
+        { "title": "Tití Me Preguntó", "album": "Un Verano Sin Ti", "plays": "1.5B" },
+        { "title": "Me Porto Bonito", "album": "Un Verano Sin Ti", "plays": "1.4B" }
+      ]
+    }
+  ]
 }

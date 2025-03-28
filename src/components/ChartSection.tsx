@@ -60,7 +60,7 @@ const ChartItem = ({ track }: { track: Track }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   
   return (
-    <div className="relative group rounded-xl p-3 hover:bg-vitify-100/50 dark:hover:bg-vitify-800/20 flex items-center gap-4 transition-all duration-300">
+    <div id="CS" className="relative group rounded-xl p-3 hover:bg-vitify-100/50 dark:hover:bg-vitify-800/20 flex items-center gap-4 transition-all duration-300">
       <div className="flex-shrink-0 w-12 text-center flex flex-col justify-center">
         <span className="font-medium text-vitify-500 dark:text-vitify-400 group-hover:opacity-0 transition-opacity duration-200">
           {track.rank}

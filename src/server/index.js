@@ -1,11 +1,4 @@
 
-// const express = require('express');
-// const cors = require('cors');
-// const { join, dirname } = require('path');
-// const { Low } = require('lowdb');
-// const { JSONFile } = require('lowdb/node');
-// const { fileURLToPath } = require('url');
-
 import express from 'express';
 import cors from 'cors';
 import { join } from 'path';
@@ -30,12 +23,11 @@ app.use(express.json());
 const __dirname = process.cwd();
 const file = join(__dirname, 'src/server/db.json');
 const adapter = new JSONFile(file);
-// const db = new Low(adapter);
-const db = new Low(adapter, { artists: [] }); // <-- Add default data here
+const db = new Low(adapter, { artists: [] }); // Add default data here
+
 // Initialize database with default data if empty
 const initializeDb = async () => {
   await db.read();
-  // db.data ||= { artists: [] };
   
   // If no artists in DB, add our initial dataset
   if (db.data.artists.length === 0) {
@@ -144,7 +136,6 @@ const initializeDb = async () => {
 // Initialize DB before starting server
 initializeDb().catch(console.error);
 
-// In production, serve the API on the same port as the frontend
 // API Routes
 app.get('/api/artists', async (req, res) => {
   await db.read();
